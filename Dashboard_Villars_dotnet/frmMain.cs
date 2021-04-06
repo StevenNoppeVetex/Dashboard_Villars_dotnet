@@ -126,6 +126,7 @@ namespace Dashboard_Villars_dotnet
             frmDoek.ShowDialog();
         }
 
+        // hoofdvenster is ingeladen
         private void frmMain_Load(object sender, EventArgs e)
         {
             // Instellen datagridview voor de eerste doek
@@ -170,6 +171,7 @@ namespace Dashboard_Villars_dotnet
             timer5sec.Interval                                          = 5000;
         }
 
+        // Gebruiker heeft op de knop "toevoegen membraam / doek 2" gedrukt
         private void btnToevoegenMembraam_doek2_Click(object sender, EventArgs e)
         {
             // Open het venster om een nieuwe membraam rol of 2de doek in te geven
@@ -208,6 +210,7 @@ namespace Dashboard_Villars_dotnet
             frmPassage.ShowDialog();
         }
 
+        // Gebruiker heeft op de knop "PLC verbinden" gedrukt
         private void btnPLCVerbinding_Click(object sender, EventArgs e)
         {
             // PLC verbinding opzetten
@@ -233,6 +236,7 @@ namespace Dashboard_Villars_dotnet
                     "Verbindingsfout!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        // Gebruiker heeft op de knop "PLC afkoppelen" gedrukt
         private void btnPLCAfkoppelen_Click(object sender, EventArgs e)
         {
             // Probeer de verbinding af te sluiten met de PLC van de Villars machine (Siemens Simatic S7-1500 PLC)
