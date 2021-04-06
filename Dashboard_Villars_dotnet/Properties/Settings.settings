@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Dashboard_Villars_dotnet.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PLC_IP_Address" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">10.247.10.2</Value>
+    </Setting>
+    <Setting Name="PLC_Rack" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="PLC_Slot" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="PLC_MachineStatus_DataBlock" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">200</Value>
+    </Setting>
+    <Setting Name="PLC_MachineStatus_MemoryLocation" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">435</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
