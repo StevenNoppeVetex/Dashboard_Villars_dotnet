@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-/* Dashboard applicatie voor de Villars machine v0.3
+/* Dashboard applicatie voor de Villars machine v0.3.1
  * 
  * Geschiedenins :
  * ---------------
