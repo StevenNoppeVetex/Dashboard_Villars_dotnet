@@ -10,6 +10,11 @@ using System.Windows.Forms;
 
 /* Dashboard applicatie voor de Villars machine v0.3.1
  * 
+ * GitHub pagina : 
+ * ---------------
+ * 
+ * https://github.com/StevenNoppeVetex/Dashboard_Villars_dotnet
+ * 
  * Geschiedenins :
  * ---------------
  * 21 maart 2021    - V0.1.0 :  - Eerste versie
