@@ -119,7 +119,7 @@ namespace Dashboard_Villars_dotnet
         // Gebruiker heeft op de knop "wis" gedrukt
         private void btnWis_Click(object sender, EventArgs e)
         {
-            txtIngaveMetrage.Text += "";
+            txtIngaveMetrage.Text = "";
         }
 
         // Gebruiker heeft op de knop "annuleren" gedrukt

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-/* Dashboard applicatie voor de Villars machine v0.3.1
+/* Dashboard applicatie voor de Villars machine v0.3.2
  * 
  * GitHub pagina : 
  * ---------------
@@ -28,7 +28,8 @@ using System.Windows.Forms;
  * 06 april 2021    - V0.3.1 :  - Source-code voorzien van commentaren
  *                              - Wijzigen OnTimedEvent5sec : Indien geen actieve verbinding met de PLC, timer verlaten en geen verdere code meer uitvoeren in die timer
  *                              - Wijzigen frmMain_load : Onmiddelijk starten 5 seconden timer
- *                              - Timer enable / disable uit de click events verwijderd van de PLC verbinding/verbreken knoppen 
+ *                              - Timer enable / disable uit de click events verwijderd van de PLC verbinding/verbreken knoppen
+ * 20 april 2021    - V0.3.2 :  - Bug fix : "wis" toets werkte niet in venster metrage ingave
  *                           
  * TODO :
  * ------
