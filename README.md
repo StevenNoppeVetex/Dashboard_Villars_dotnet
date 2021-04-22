@@ -1,7 +1,7 @@
 # Dashboard_Villars_dotnet
 
 .net dashboard application for a lamination machine @ Vetex nv.
-Application will run on a touchscreen HMI running Windows 10 IOT.
+Application will run on a panel PC running Windows 10 IOT.
 
 The application gets the machine status from a Siemens PLC S7-1500, using the Snap7 library.
 
