@@ -8,15 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-/* Dashboard applicatie voor de Villars machine v0.3.2
+/* Dashboard applicatie voor de Villars machine v0.3.3
  * 
  * GitHub pagina : 
  * ---------------
  * 
  * https://github.com/StevenNoppeVetex/Dashboard_Villars_dotnet
  * 
- * Geschiedenins :
- * ---------------
+ * Geschiedenis :
+ * --------------
  * 21 maart 2021    - V0.1.0 :  - Eerste versie
  * 01 april 2021    - V0.2.0 :  - Bij 2de passage wordt er geen membraam tegen het doek gelamineerd, maar een 2 de doek.
  *                                Dit werd gewijzigd in de applicatie zodat, wanneer de operator de 2 de passage kiest, er visueel op het hoofdscherm 
@@ -30,6 +30,10 @@ using System.Windows.Forms;
  *                              - Wijzigen frmMain_load : Onmiddelijk starten 5 seconden timer
  *                              - Timer enable / disable uit de click events verwijderd van de PLC verbinding/verbreken knoppen
  * 20 april 2021    - V0.3.2 :  - Bug fix : "wis" toets werkte niet in venster metrage ingave
+ * 22 april 2021    - V0.3.3 :  - Wijzigen grootte van hoofdvenster naar 1024x768, zodat deze fullscreen op de panel PC past.
+ *                              - Aanpassen grootte van knoppen, tekstvakken, layout... op hoofdvenster
+ *                              - Maximaliseer hoofdvenster bij opstarten applicatie
+ *                              - Zet focus op hoofdvenster bij opstarten applicatie
  *                           
  * TODO :
  * ------
@@ -44,10 +48,10 @@ namespace Dashboard_Villars_dotnet
     public partial class frmMain : Form
     {
         // object aanmaken voor connectie met PLC Villars machine
-        private CSiemensS7 VillarsPLC                           = new CSiemensS7();
+        private CSiemensS7 VillarsPLC                                   = new CSiemensS7();
         
         // aanmaken string voor ontvangen PLC data
-        private string strPLCData                               = "";
+        private string strPLCData                                       = "";
 
         // aanmaken systeem timer voor ophalen PLC data
         private static System.Timers.Timer timer5sec = new System.Timers.Timer();
@@ -67,15 +71,15 @@ namespace Dashboard_Villars_dotnet
             
             // Ophalen info uit "App.config" bestand
             // De machine status wordt bewaard in een datablock in de hoofd-PLC van de Villars
-            int iMachineStatusDataBlock                         = Properties.Settings.Default.PLC_MachineStatus_DataBlock;          // DataBlock nummer
-            int iMAchineStatusMemoryLocation                    = Properties.Settings.Default.PLC_MachineStatus_MemoryLocation;     // Geheugen locatie in DataBlock
+            int iMachineStatusDataBlock                                 = Properties.Settings.Default.PLC_MachineStatus_DataBlock;          // DataBlock nummer
+            int iMAchineStatusMemoryLocation                            = Properties.Settings.Default.PLC_MachineStatus_MemoryLocation;     // Geheugen locatie in DataBlock
 
             // Initialiseren parameters voor ophalen status machine
-            VillarsPLC.DataDBnumber                             = iMachineStatusDataBlock;                                          // DataBlock nummer
-            VillarsPLC.DataLocation                             = iMAchineStatusMemoryLocation;                                     // Geheugen locatie in DataBlock
-            VillarsPLC.DataType                                 = "sint";                                                           // Machine status in de PLC is van het type short int
-            VillarsPLC.DataLength                               = "byte";                                                           // Machine status in de PLC is 1 byte groot
-            VillarsPLC.DataArea                                 = "DB";                                                             // Machine status zal uitgelezen worden uit een DataBlock
+            VillarsPLC.DataDBnumber                                     = iMachineStatusDataBlock;                                          // DataBlock nummer
+            VillarsPLC.DataLocation                                     = iMAchineStatusMemoryLocation;                                     // Geheugen locatie in DataBlock
+            VillarsPLC.DataType                                         = "sint";                                                           // Machine status in de PLC is van het type short int
+            VillarsPLC.DataLength                                       = "byte";                                                           // Machine status in de PLC is 1 byte groot
+            VillarsPLC.DataArea                                         = "DB";                                                             // Machine status zal uitgelezen worden uit een DataBlock
 
             // Ophalen status van de machine uit de PLC
             strPLCData = VillarsPLC.GetPLCData();
@@ -150,43 +154,47 @@ namespace Dashboard_Villars_dotnet
             dgvDoek1.SelectionMode                                      = DataGridViewSelectionMode.FullRowSelect;
             dgvDoek1.RowTemplate.Height                                 = 40;
             dgvDoek1.ColumnCount                                        = 3;
-            dgvDoek1.DefaultCellStyle.Font                              = new Font("Microsoft Sans Serif", 24.0F);
+            dgvDoek1.DefaultCellStyle.Font                              = new Font("Microsoft Sans Serif", 14.0F);
             dgvDoek1.DefaultCellStyle.Alignment                         = DataGridViewContentAlignment.MiddleCenter;
-            dgvDoek1.ColumnHeadersDefaultCellStyle.Font                 = new Font("Microsoft Sans Serif", 24.0F);
+            dgvDoek1.ColumnHeadersDefaultCellStyle.Font                 = new Font("Microsoft Sans Serif", 14.0F);
             dgvDoek1.ColumnHeadersDefaultCellStyle.Alignment            = DataGridViewContentAlignment.MiddleCenter;
 
             dgvDoek1.Columns[0].Name                                    = "nr.";
-            dgvDoek1.Columns[0].Width                                   = 50;
+            dgvDoek1.Columns[0].Width                                   = 30;
 
             dgvDoek1.Columns[1].Name                                    = "code";
-            dgvDoek1.Columns[1].Width                                   = 450;
+            dgvDoek1.Columns[1].Width                                   = 250;
 
             dgvDoek1.Columns[2].Name                                    = "metrage";
-            dgvDoek1.Columns[2].Width                                   = 200;
+            dgvDoek1.Columns[2].Width                                   = 100;
 
             // Instellen datagridview voor het membraam of tweede doek
             dgvMembraam_doek2.SelectionMode                             = DataGridViewSelectionMode.FullRowSelect;
             dgvMembraam_doek2.RowTemplate.Height                        = 40;
             dgvMembraam_doek2.ColumnCount                               = 3;
-            dgvMembraam_doek2.DefaultCellStyle.Font                     = new Font("Microsoft Sans Serif", 24.0F);
+            dgvMembraam_doek2.DefaultCellStyle.Font                     = new Font("Microsoft Sans Serif", 14.0F);
             dgvMembraam_doek2.DefaultCellStyle.Alignment                = DataGridViewContentAlignment.MiddleCenter;
-            dgvMembraam_doek2.ColumnHeadersDefaultCellStyle.Font        = new Font("Microsoft Sans Serif", 24.0F);
+            dgvMembraam_doek2.ColumnHeadersDefaultCellStyle.Font        = new Font("Microsoft Sans Serif", 14.0F);
             dgvMembraam_doek2.ColumnHeadersDefaultCellStyle.Alignment   = DataGridViewContentAlignment.MiddleCenter;
 
             dgvMembraam_doek2.Columns[0].Name                           = "nr.";
-            dgvMembraam_doek2.Columns[0].Width                          = 50;
+            dgvMembraam_doek2.Columns[0].Width                          = 30;
 
             dgvMembraam_doek2.Columns[1].Name                           = "code";
-            dgvMembraam_doek2.Columns[1].Width                          = 450;
+            dgvMembraam_doek2.Columns[1].Width                          = 250;
 
             dgvMembraam_doek2.Columns[2].Name                           = "metrage";
-            dgvMembraam_doek2.Columns[2].Width                          = 200;
+            dgvMembraam_doek2.Columns[2].Width                          = 100;
 
             // Instellen 5 seconden timer om data uit PLC te lezen
             timer5sec.Elapsed                                          += OnTimedEvent5sec;                     // Welke functie aan te roepen bij verstrijken tijd
             timer5sec.AutoReset                                         = true;                                 // Automatisch resetten na bereiken tijd en opnieuw starten
             timer5sec.Interval                                          = 5000;                                 // Timer van 5000 ms = 5 seconden
             timer5sec.Enabled                                           = true;                                 // Start de timer
+
+            // Maximaliseer venster
+            this.Focus();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         // Gebruiker heeft op de knop "toevoegen membraam / doek 2" gedrukt
@@ -257,16 +265,16 @@ namespace Dashboard_Villars_dotnet
         private void btnPLCAfkoppelen_Click(object sender, EventArgs e)
         {
             // Probeer de verbinding af te sluiten met de PLC van de Villars machine (Siemens Simatic S7-1500 PLC)
-            int iResult                                         = VillarsPLC.Disconnect();
+            int iResult                                                 = VillarsPLC.Disconnect();
 
             // PLC is correct afgesloten indien resultaat gelijk is aan "0"
             if (iResult == 0)
             {
-                stslblVerbindingPLC.Text                        = "PLC : Geen verbinding";
-                txtMachineStatus.Text                           = "Geen machine status";
-                btnPLCVerbinding.Enabled                        = true;
-                btnPLCAfkoppelen.Enabled                        = false;
-                txtMachineStatus.BackColor                      = SystemColors.Control;
+                stslblVerbindingPLC.Text                                = "PLC : Geen verbinding";
+                txtMachineStatus.Text                                   = "Geen machine status";
+                btnPLCVerbinding.Enabled                                = true;
+                btnPLCAfkoppelen.Enabled                                = false;
+                txtMachineStatus.BackColor                              = SystemColors.Control;
             }
         }
 
@@ -286,7 +294,7 @@ namespace Dashboard_Villars_dotnet
                     // Open het venster om de metrage in te geven
                     // We geven dit formulier mee, zodat het nieuwe venster de datagrid view kan wijzigen
                     // We geven ook een "0" mee om aan te duiden dat het over doek 1 gaat
-                    frmMetrage frmMetrage                       = new frmMetrage(this, 0);
+                    frmMetrage frmMetrage                               = new frmMetrage(this, 0);
                     frmMetrage.ShowDialog();
                 }
                 else
@@ -312,7 +320,7 @@ namespace Dashboard_Villars_dotnet
                     // Open het venster om de metrage in te geven
                     // We geven dit formulier mee, zodat het nieuwe venster de datagrid view kan wijzigen
                     // We geven ook een "1" mee om aan te duiden dat het over membraam / doek 2 gaat
-                    frmMetrage frmMetrage                       = new frmMetrage(this, 1);
+                    frmMetrage frmMetrage                               = new frmMetrage(this, 1);
                     frmMetrage.ShowDialog();
                 }
                 else
@@ -331,23 +339,23 @@ namespace Dashboard_Villars_dotnet
             {
                 // passage 1 => membraam / doek 2 = membraam
                 case "1":
-                    lblMembraam_doek2.Text                      = "Membraam :";
-                    btnToevoegenMembraam_doek2.Text             = "Toevoegen membraam";
-                    btnWisMembramen_doeken2.Text                = "Wis membramen";
+                    lblMembraam_doek2.Text                              = "Membraam :";
+                    btnToevoegenMembraam_doek2.Text                     = "Toevoegen membraam";
+                    btnWisMembramen_doeken2.Text                        = "Wis membramen";
                     break;
                 
                 // passage 2 => membraam / doek 2 = doek 2
                 case "2":
-                    lblMembraam_doek2.Text                      = "Doek 2 :";
-                    btnToevoegenMembraam_doek2.Text             = "Toevoegen doek 2";
-                    btnWisMembramen_doeken2.Text                = "Wis doeken 2";
+                    lblMembraam_doek2.Text                              = "Doek 2 :";
+                    btnToevoegenMembraam_doek2.Text                     = "Toevoegen doek 2";
+                    btnWisMembramen_doeken2.Text                        = "Wis doeken 2";
                     break;
 
                 // default => membraam / doek 2 = membraam
                 default:
-                    lblMembraam_doek2.Text                      = "Membraam :";
-                    btnToevoegenMembraam_doek2.Text             = "Toevoegen membraam";
-                    btnWisMembramen_doeken2.Text                = "Wis membramen";
+                    lblMembraam_doek2.Text                              = "Membraam :";
+                    btnToevoegenMembraam_doek2.Text                     = "Toevoegen membraam";
+                    btnWisMembramen_doeken2.Text                        = "Wis membramen";
                     break;
             }
         }
