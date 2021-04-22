@@ -195,6 +195,7 @@ namespace Dashboard_Villars_dotnet
             // Maximaliseer venster
             this.Focus();
             this.WindowState = FormWindowState.Maximized;
+            this.BringToFront();
         }
 
         // Gebruiker heeft op de knop "toevoegen membraam / doek 2" gedrukt
