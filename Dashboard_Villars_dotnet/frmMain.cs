@@ -34,6 +34,7 @@ using System.Windows.Forms;
  *                              - Aanpassen grootte van knoppen, tekstvakken, layout... op hoofdvenster
  *                              - Maximaliseer hoofdvenster bij opstarten applicatie
  *                              - Zet focus op hoofdvenster bij opstarten applicatie
+ * 13 juli 2021     - V0.3.3 :  - Toevoegen Nuget package van Oquile : MQTT client (Vet.IoT.Mqtt.Client v3.0.0)
  *                           
  * TODO :
  * ------
