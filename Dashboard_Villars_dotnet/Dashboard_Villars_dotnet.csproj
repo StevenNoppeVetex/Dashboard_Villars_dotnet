@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSiemensS7.cs" />
+    <Compile Include="event models\MembraneChangePayload.cs" />
     <Compile Include="frmDoek.cs">
       <SubType>Form</SubType>
     </Compile>

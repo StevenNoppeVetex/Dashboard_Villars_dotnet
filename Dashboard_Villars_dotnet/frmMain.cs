@@ -7,8 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dashboard_Villars_dotnet.event_models;            // alle modellen voor de events
+using OQuila.IoT.Data.Models.Messages.Payload;
+using Vet.IoT.Mqtt.Client;
 
-/* Dashboard applicatie voor de Villars machine v0.3.3
+/* Dashboard applicatie voor de Villars machine v0.4
  * 
  * GitHub pagina : 
  * ---------------
@@ -35,10 +38,13 @@ using System.Windows.Forms;
  *                              - Maximaliseer hoofdvenster bij opstarten applicatie
  *                              - Zet focus op hoofdvenster bij opstarten applicatie
  * 13 juli 2021     - V0.3.3 :  - Toevoegen Nuget package van Oquile : MQTT client (Vet.IoT.Mqtt.Client v3.0.0)
+ * 23 juli 2021     - V0.4   :  - Inlezen machine status via MQTT uit de IoT gateway en visualiseren op het scherm
+ *                              - aanmaken extra klasse voor event "membrane change"
+ *                              - Klikken op knop "gebeurtenis 1" verzend een event naar de IoT gateway : membrane change 
  *                           
  * TODO :
  * ------
- * - automatisch verbinden met PLC bij opstart applicatie, bij geen verbinding evt. na een delay opnieuw proberen te connecteren
+ * - verwijderen code om rechtstreeks te communiceren met de PLC. Alles verloopt nu via de IoT gateway & MQTT!
  * - verbinding met azure data lake database : - gebeurtenissen registreren
  *                                             - wegschrijven PO
  * - verbinding met azure (?) SQL database   : - wegschrijven PO, doek 1, membraam/doek 2 nummer, membraam/doek 2 metrage
@@ -48,6 +54,15 @@ namespace Dashboard_Villars_dotnet
 {
     public partial class frmMain : Form
     {
+        // object aanmaken om te publiceren
+        private MqttPublisher _mqttPublisher;
+
+        // object aanmaken om berichten te ontvangen
+        private MqttSubscriber _mqttSubscriber;
+
+        // constante gebruikt om aan te geven op welke machine deze software draait
+        private const string _deviceId = "villars";
+
         // object aanmaken voor connectie met PLC Villars machine
         private CSiemensS7 VillarsPLC                                   = new CSiemensS7();
         
@@ -56,6 +71,81 @@ namespace Dashboard_Villars_dotnet
 
         // aanmaken systeem timer voor ophalen PLC data
         private static System.Timers.Timer timer5sec = new System.Timers.Timer();
+
+        // methode voor het initialiseren van de MQTT verbinding met de IoT gateway
+        private async Task InitMqtt()
+        {
+            var config = new MqttConfiguration("panel_PC_villars", "10.247.10.1") ;
+
+            _mqttPublisher = new MqttPublisher(config) ;
+            _mqttSubscriber = new MqttSubscriber(config) ;
+
+            _mqttSubscriber.MessageReceived += _mqttSubscriber_MessageReceived ;
+
+            await _mqttSubscriber.SubscribeAsync(MqttSubscriber.Category.Telemetry, _deviceId) ;
+        }
+
+        // afhandelen ontvangen berichten
+        private void _mqttSubscriber_MessageReceived(object sender, MessageReceivedEventArgs e)
+        {
+            string strMachineStatus = "" ;
+
+            // indien geen telemtry data, doe niets
+            if (e.Category != MqttSubscriber.Category.Telemetry)
+                return ;
+
+            if (e.EntryType != "vil_machine-status")
+                return ;
+
+            var data = e.GetPayload<TelemetryPayload>() ;
+
+            // indien niet bestemd voor deze machine, doe niets
+
+            // niet nodig, dit word reeds gefilterd in de InitMqtt()
+            //if (data.MachineName != _deviceId) 
+            //    return ;
+
+            switch (Convert.ToInt32(data.Value))
+            {
+                case 0:
+                    {
+                        // Machine uit
+                        strMachineStatus = "Machine uit" ;
+                        txtMachineStatus.BackColor = Color.LightBlue ;
+                        break;
+                    }
+                case 1:
+                    {
+                        // Machine aan : stuurkast aangelegd
+                        strMachineStatus = "Machine aan" ;
+                        txtMachineStatus.BackColor = Color.LightYellow ;
+                        break;
+                    }
+                case 2:
+                    {
+                        // Machine in productie : min. snelheid 1 m/min & coating mes in sjabloon staat neer
+                        strMachineStatus = "Machine in productie" ;
+                        txtMachineStatus.BackColor = Color.LightGreen ;
+                        break ;
+                    }
+                default:
+                    {
+                        // Indien geen van bovenstaande, geef een algemene status aan
+                        strMachineStatus = "Geen machine status" ;
+                        txtMachineStatus.BackColor = SystemColors.Control ;
+                        break ;
+                    }
+            }
+            // Status machine weergeven in tekstvak
+            if (txtMachineStatus.InvokeRequired)
+            {
+                txtMachineStatus.Invoke(new MethodInvoker(delegate
+                {
+                    txtMachineStatus.Text = strMachineStatus;
+                })) ;
+            }
+        }
+
 
         // Wanneer er een connectie is met de PLC, start deze timer
         // elke 5 seconden word er data opgevraagd
@@ -149,8 +239,11 @@ namespace Dashboard_Villars_dotnet
         }
 
         // hoofdvenster is ingeladen
-        private void frmMain_Load(object sender, EventArgs e)
+        private async void frmMain_Load(object sender, EventArgs e)
         {
+            // initialiseer MQTT verbinding met IoT gateway
+            await InitMqtt();
+
             // Instellen datagridview voor de eerste doek
             dgvDoek1.SelectionMode                                      = DataGridViewSelectionMode.FullRowSelect;
             dgvDoek1.RowTemplate.Height                                 = 40;
@@ -363,9 +456,16 @@ namespace Dashboard_Villars_dotnet
         }
 
         // de gebruiker heeft op de knop "gebeurtenis 1" gedrukt
-        private void btnGebeurtenis1_Click(object sender, EventArgs e)
+        private async void btnGebeurtenis1_Click(object sender, EventArgs e)
         {
-
+            await _mqttPublisher.PublishAsync(
+                _deviceId,
+                new MembraneChangePayload(DateTimeOffset.UtcNow)
+                {
+                    Text = "Gebeurtenis 1",
+                    Length = 1
+                }
+            );
         }
 
         // de gebruiker heeft op de knop "gebeurtenis 2" gedrukt
