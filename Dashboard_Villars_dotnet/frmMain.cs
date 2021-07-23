@@ -37,7 +37,7 @@ using Vet.IoT.Mqtt.Client;
  *                              - Aanpassen grootte van knoppen, tekstvakken, layout... op hoofdvenster
  *                              - Maximaliseer hoofdvenster bij opstarten applicatie
  *                              - Zet focus op hoofdvenster bij opstarten applicatie
- * 13 juli 2021     - V0.3.3 :  - Toevoegen Nuget package van Oquile : MQTT client (Vet.IoT.Mqtt.Client v3.0.0)
+ * 13 juli 2021     - V0.3.4 :  - Toevoegen Nuget package van Oquile : MQTT client (Vet.IoT.Mqtt.Client v3.0.0)
  * 23 juli 2021     - V0.4   :  - Inlezen machine status via MQTT uit de IoT gateway en visualiseren op het scherm
  *                              - aanmaken extra klasse voor event "membrane change"
  *                              - Klikken op knop "gebeurtenis 1" verzend een event naar de IoT gateway : membrane change 
@@ -94,16 +94,12 @@ namespace Dashboard_Villars_dotnet
             if (e.Category != MqttSubscriber.Category.Telemetry)
                 return ;
 
+            // enkel de machine status uitlezen van de Villars machine
             if (e.EntryType != "vil_machine-status")
                 return ;
 
+            // Payload ophalen
             var data = e.GetPayload<TelemetryPayload>() ;
-
-            // indien niet bestemd voor deze machine, doe niets
-
-            // niet nodig, dit word reeds gefilterd in de InitMqtt()
-            //if (data.MachineName != _deviceId) 
-            //    return ;
 
             switch (Convert.ToInt32(data.Value))
             {
