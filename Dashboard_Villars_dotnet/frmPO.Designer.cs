@@ -57,7 +57,7 @@ namespace Dashboard_Villars_dotnet
             // btn1
             // 
             this.btn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn1.Location = new System.Drawing.Point(163, 62);
+            this.btn1.Location = new System.Drawing.Point(159, 62);
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(60, 60);
             this.btn1.TabIndex = 1;
@@ -68,7 +68,7 @@ namespace Dashboard_Villars_dotnet
             // btn2
             // 
             this.btn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn2.Location = new System.Drawing.Point(229, 62);
+            this.btn2.Location = new System.Drawing.Point(225, 62);
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(60, 60);
             this.btn2.TabIndex = 2;
@@ -79,7 +79,7 @@ namespace Dashboard_Villars_dotnet
             // btn3
             // 
             this.btn3.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn3.Location = new System.Drawing.Point(295, 62);
+            this.btn3.Location = new System.Drawing.Point(291, 62);
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(60, 60);
             this.btn3.TabIndex = 3;
@@ -90,7 +90,7 @@ namespace Dashboard_Villars_dotnet
             // btn4
             // 
             this.btn4.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn4.Location = new System.Drawing.Point(163, 128);
+            this.btn4.Location = new System.Drawing.Point(159, 128);
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(60, 60);
             this.btn4.TabIndex = 4;
@@ -101,7 +101,7 @@ namespace Dashboard_Villars_dotnet
             // btn5
             // 
             this.btn5.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn5.Location = new System.Drawing.Point(229, 128);
+            this.btn5.Location = new System.Drawing.Point(225, 128);
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(60, 60);
             this.btn5.TabIndex = 5;
@@ -112,7 +112,7 @@ namespace Dashboard_Villars_dotnet
             // btn6
             // 
             this.btn6.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn6.Location = new System.Drawing.Point(295, 128);
+            this.btn6.Location = new System.Drawing.Point(291, 128);
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(60, 60);
             this.btn6.TabIndex = 6;
@@ -123,7 +123,7 @@ namespace Dashboard_Villars_dotnet
             // btn7
             // 
             this.btn7.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn7.Location = new System.Drawing.Point(163, 194);
+            this.btn7.Location = new System.Drawing.Point(159, 194);
             this.btn7.Name = "btn7";
             this.btn7.Size = new System.Drawing.Size(60, 60);
             this.btn7.TabIndex = 7;
@@ -134,7 +134,7 @@ namespace Dashboard_Villars_dotnet
             // btn8
             // 
             this.btn8.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn8.Location = new System.Drawing.Point(229, 194);
+            this.btn8.Location = new System.Drawing.Point(225, 194);
             this.btn8.Name = "btn8";
             this.btn8.Size = new System.Drawing.Size(60, 60);
             this.btn8.TabIndex = 8;
@@ -145,7 +145,7 @@ namespace Dashboard_Villars_dotnet
             // btn9
             // 
             this.btn9.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn9.Location = new System.Drawing.Point(295, 194);
+            this.btn9.Location = new System.Drawing.Point(291, 194);
             this.btn9.Name = "btn9";
             this.btn9.Size = new System.Drawing.Size(60, 60);
             this.btn9.TabIndex = 9;
@@ -156,7 +156,7 @@ namespace Dashboard_Villars_dotnet
             // btn0
             // 
             this.btn0.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn0.Location = new System.Drawing.Point(163, 260);
+            this.btn0.Location = new System.Drawing.Point(159, 260);
             this.btn0.Name = "btn0";
             this.btn0.Size = new System.Drawing.Size(60, 60);
             this.btn0.TabIndex = 10;
@@ -167,7 +167,7 @@ namespace Dashboard_Villars_dotnet
             // btnPO
             // 
             this.btnPO.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPO.Location = new System.Drawing.Point(229, 260);
+            this.btnPO.Location = new System.Drawing.Point(225, 260);
             this.btnPO.Name = "btnPO";
             this.btnPO.Size = new System.Drawing.Size(126, 60);
             this.btnPO.TabIndex = 11;
