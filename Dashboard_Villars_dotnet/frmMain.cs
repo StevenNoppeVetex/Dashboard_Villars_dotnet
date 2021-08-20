@@ -42,7 +42,8 @@ using Vet.IoT.Mqtt.Client;
  *                              - aanmaken extra klasse voor event "membrane change"
  *                              - Klikken op knop "gebeurtenis 1" verzend een event naar de IoT gateway : membrane change
  * 20/08/2021       - V0.4   :  - Aanpassen TODO lijst
- *                           
+ * 20/08/2021       - V0.4.1 :  - Knoppen toegevoegd op formulier "ingave doek"                         
+ * 
  * TODO :
  * ------
  * - Verwijderen code om rechtstreeks te communiceren met de PLC. Alles verloopt nu via de IoT gateway & MQTT!
