@@ -40,14 +40,23 @@ using Vet.IoT.Mqtt.Client;
  * 13 juli 2021     - V0.3.4 :  - Toevoegen Nuget package van Oquile : MQTT client (Vet.IoT.Mqtt.Client v3.0.0)
  * 23 juli 2021     - V0.4   :  - Inlezen machine status via MQTT uit de IoT gateway en visualiseren op het scherm
  *                              - aanmaken extra klasse voor event "membrane change"
- *                              - Klikken op knop "gebeurtenis 1" verzend een event naar de IoT gateway : membrane change 
+ *                              - Klikken op knop "gebeurtenis 1" verzend een event naar de IoT gateway : membrane change
+ * 20/08/2021       - V0.4   :  - Aanpassen TODO lijst
  *                           
  * TODO :
  * ------
- * - verwijderen code om rechtstreeks te communiceren met de PLC. Alles verloopt nu via de IoT gateway & MQTT!
- * - verbinding met azure data lake database : - gebeurtenissen registreren
- *                                             - wegschrijven PO
- * - verbinding met azure (?) SQL database   : - wegschrijven PO, doek 1, membraam/doek 2 nummer, membraam/doek 2 metrage
+ * - Verwijderen code om rechtstreeks te communiceren met de PLC. Alles verloopt nu via de IoT gateway & MQTT!
+ * - Wijzigen venster ingave doek 1 : toetsenbord met cijfers en letters : 'E', 'C' en 'F' + wis-toets
+ * - Events : - Voorbereiding productie
+ *            - Start PO
+ *            - Stop PO
+ *            - Doek 1 wissel (later misschien via impuls van schakelaar wissel tussen rem 1 & rem 2)
+ *            - Doek 2 / membraam wissel 
+ * - Apart venster voor ingave eindproduct
+ * - Op einde productie => overzicht van alles + geregistreerde events
+ *                      => ingave rest doek / membraam
+ * - Bij elke registratie van een event : registratie lengte + registratie tijd/datum
+ * - Wijzigen Data Grid View van doek 1 & doek 2/membraam : mogelijkheid tot scrollen toevoegen (tot minstens 9 rollen per PO mogelijk!)
  */
 
 namespace Dashboard_Villars_dotnet
