@@ -46,6 +46,7 @@ namespace Dashboard_Villars_dotnet
             this.btn1 = new System.Windows.Forms.Button();
             this.btnE = new System.Windows.Forms.Button();
             this.btnF = new System.Windows.Forms.Button();
+            this.btnMinTeken = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnWis
@@ -232,11 +233,23 @@ namespace Dashboard_Villars_dotnet
             this.btnF.UseVisualStyleBackColor = true;
             this.btnF.Click += new System.EventHandler(this.btnF_Click);
             // 
+            // btnMinTeken
+            // 
+            this.btnMinTeken.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinTeken.Location = new System.Drawing.Point(90, 258);
+            this.btnMinTeken.Name = "btnMinTeken";
+            this.btnMinTeken.Size = new System.Drawing.Size(60, 60);
+            this.btnMinTeken.TabIndex = 25;
+            this.btnMinTeken.Text = "-";
+            this.btnMinTeken.UseVisualStyleBackColor = true;
+            this.btnMinTeken.Click += new System.EventHandler(this.btnMinTeken_Click);
+            // 
             // frmDoek
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(505, 457);
+            this.Controls.Add(this.btnMinTeken);
             this.Controls.Add(this.btnF);
             this.Controls.Add(this.btnE);
             this.Controls.Add(this.btnC);
@@ -282,5 +295,6 @@ namespace Dashboard_Villars_dotnet
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.Button btnE;
         private System.Windows.Forms.Button btnF;
+        private System.Windows.Forms.Button btnMinTeken;
     }
 }

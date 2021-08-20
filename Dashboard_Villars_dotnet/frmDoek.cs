@@ -143,5 +143,12 @@ namespace Dashboard_Villars_dotnet
             // Voeg de tekst "F" toe aan het tekstvak "Ingave Doek"
             txtIngaveDoek.Text += "F";
         }
+
+        // Gebruiker heeft op de knop "-" gedrukt
+        private void btnMinTeken_Click(object sender, EventArgs e)
+        {
+            // Voeg de tekst "-" toe aan het tekstvak "Ingave Doek"
+            txtIngaveDoek.Text += "-";
+        }
     }
 }
