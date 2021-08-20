@@ -11,7 +11,7 @@ using Dashboard_Villars_dotnet.event_models;            // alle modellen voor de
 using OQuila.IoT.Data.Models.Messages.Payload;
 using Vet.IoT.Mqtt.Client;
 
-/* Dashboard applicatie voor de Villars machine v0.4
+/* Dashboard applicatie voor de Villars machine v0.4.1
  * 
  * GitHub pagina : 
  * ---------------
@@ -42,13 +42,16 @@ using Vet.IoT.Mqtt.Client;
  *                              - aanmaken extra klasse voor event "membrane change"
  *                              - Klikken op knop "gebeurtenis 1" verzend een event naar de IoT gateway : membrane change
  * 20/08/2021       - V0.4   :  - Aanpassen TODO lijst
- * 20/08/2021       - V0.4.1 :  - Knoppen toegevoegd op formulier "ingave doek"                         
+ * 20/08/2021       - V0.4.1 :  - Knoppen toegevoegd op formulier "ingave doek"
+ *                              - label toegevoegd op Statusbar voor versienummer
+ *                              - wissel label status verbinding PLC
+ *                              - wissen knoppen "PLC verbinden" / "PLC afkoppelen"
+ *                              - wissen alle code die ophalen data uit PLC afhandeld
+ *                              - Alle titlebaren uitgeschakeld
  * 
  * TODO :
  * ------
- * - Verwijderen code om rechtstreeks te communiceren met de PLC. Alles verloopt nu via de IoT gateway & MQTT!
- * - Wijzigen venster ingave doek 1 : toetsenbord met cijfers en letters : 'E', 'C' en 'F' + wis-toets
- * - Events : - Voorbereiding productie
+  * - Events : - Voorbereiding productie
  *            - Start PO
  *            - Stop PO
  *            - Doek 1 wissel (later misschien via impuls van schakelaar wissel tussen rem 1 & rem 2)
@@ -64,6 +67,8 @@ namespace Dashboard_Villars_dotnet
 {
     public partial class frmMain : Form
     {
+        private string strVersion = "Versie : 0.4.1";
+
         // object aanmaken om te publiceren
         private MqttPublisher _mqttPublisher;
 
@@ -72,15 +77,6 @@ namespace Dashboard_Villars_dotnet
 
         // constante gebruikt om aan te geven op welke machine deze software draait
         private const string _deviceId = "villars";
-
-        // object aanmaken voor connectie met PLC Villars machine
-        private CSiemensS7 VillarsPLC                                   = new CSiemensS7();
-        
-        // aanmaken string voor ontvangen PLC data
-        private string strPLCData                                       = "";
-
-        // aanmaken systeem timer voor ophalen PLC data
-        private static System.Timers.Timer timer5sec = new System.Timers.Timer();
 
         // methode voor het initialiseren van de MQTT verbinding met de IoT gateway
         private async Task InitMqtt()
@@ -152,77 +148,6 @@ namespace Dashboard_Villars_dotnet
             }
         }
 
-
-        // Wanneer er een connectie is met de PLC, start deze timer
-        // elke 5 seconden word er data opgevraagd
-        private void OnTimedEvent5sec(Object source, System.Timers.ElapsedEventArgs e)
-        {
-            // Controleer indien er een actieve verbinding is met de PLC
-            if (!VillarsPLC.PLCconnected())
-            {
-                // indien geen actieve verbinding, verlaat de timer
-                return;
-            }
-            
-            string strMachineStatus;
-            
-            // Ophalen info uit "App.config" bestand
-            // De machine status wordt bewaard in een datablock in de hoofd-PLC van de Villars
-            int iMachineStatusDataBlock                                 = Properties.Settings.Default.PLC_MachineStatus_DataBlock;          // DataBlock nummer
-            int iMAchineStatusMemoryLocation                            = Properties.Settings.Default.PLC_MachineStatus_MemoryLocation;     // Geheugen locatie in DataBlock
-
-            // Initialiseren parameters voor ophalen status machine
-            VillarsPLC.DataDBnumber                                     = iMachineStatusDataBlock;                                          // DataBlock nummer
-            VillarsPLC.DataLocation                                     = iMAchineStatusMemoryLocation;                                     // Geheugen locatie in DataBlock
-            VillarsPLC.DataType                                         = "sint";                                                           // Machine status in de PLC is van het type short int
-            VillarsPLC.DataLength                                       = "byte";                                                           // Machine status in de PLC is 1 byte groot
-            VillarsPLC.DataArea                                         = "DB";                                                             // Machine status zal uitgelezen worden uit een DataBlock
-
-            // Ophalen status van de machine uit de PLC
-            strPLCData = VillarsPLC.GetPLCData();
-            
-            // Afhankelijk van de uitgelezen data wijzigen we het tekstvak met de huidige machine status
-            switch (int.Parse(strPLCData))
-            {
-                case 0:
-                    {
-                        // Machine uit
-                        strMachineStatus                                = "Machine uit";
-                        txtMachineStatus.BackColor                      = Color.LightBlue;
-                        break;
-                    }
-                case 1:
-                    {
-                        // Machine aan : stuurkast aangelegd
-                        strMachineStatus                                = "Machine aan";
-                        txtMachineStatus.BackColor                      = Color.LightYellow;
-                        break;
-                    }
-                case 2:
-                    {
-                        // Machine in productie : min. snelheid 1 m/min & coating mes in sjabloon staat neer
-                        strMachineStatus                                = "Machine in productie";
-                        txtMachineStatus.BackColor                      = Color.LightGreen;
-                        break;
-                    }
-                default:
-                    {
-                        // Indien geen van bovenstaande, geef een algemene status aan
-                        strMachineStatus                                = "Geen machine status";
-                        txtMachineStatus.BackColor                      = SystemColors.Control;
-                        break;
-                    }
-            }
-
-            // Status machine weergeven in tekstvak
-            if (txtMachineStatus.InvokeRequired)
-            {
-                txtMachineStatus.Invoke(new MethodInvoker(delegate
-                {
-                    txtMachineStatus.Text = strMachineStatus;
-                }));
-            }
-        }
         public frmMain()
         {
             InitializeComponent();
@@ -247,6 +172,9 @@ namespace Dashboard_Villars_dotnet
         // hoofdvenster is ingeladen
         private async void frmMain_Load(object sender, EventArgs e)
         {
+            // wijzig label op statusbaar met versie nummer
+            stslblVersion.Text = strVersion;
+            
             // initialiseer MQTT verbinding met IoT gateway
             await InitMqtt();
 
@@ -285,12 +213,6 @@ namespace Dashboard_Villars_dotnet
 
             dgvMembraam_doek2.Columns[2].Name                           = "metrage";
             dgvMembraam_doek2.Columns[2].Width                          = 100;
-
-            // Instellen 5 seconden timer om data uit PLC te lezen
-            timer5sec.Elapsed                                          += OnTimedEvent5sec;                     // Welke functie aan te roepen bij verstrijken tijd
-            timer5sec.AutoReset                                         = true;                                 // Automatisch resetten na bereiken tijd en opnieuw starten
-            timer5sec.Interval                                          = 5000;                                 // Timer van 5000 ms = 5 seconden
-            timer5sec.Enabled                                           = true;                                 // Start de timer
 
             // Maximaliseer venster
             this.Focus();
@@ -335,48 +257,6 @@ namespace Dashboard_Villars_dotnet
             // We geven dit formulier mee, zodat het nieuwe venster het tekstvak "passage" kan invullen
             frmPassage frmPassage                                       = new frmPassage(this);
             frmPassage.ShowDialog();
-        }
-
-        // Gebruiker heeft op de knop "PLC verbinden" gedrukt
-        private void btnPLCVerbinding_Click(object sender, EventArgs e)
-        {
-            // PLC verbinding opzetten
-
-            // Haal info uit het "App.config" bestand
-            string strIPAddress                                         = Properties.Settings.Default.PLC_IP_Address.ToString();        // IP adres van de PLC
-            int iRack                                                   = Properties.Settings.Default.PLC_Rack;                         // Rack nummer
-            int iSlot                                                   = Properties.Settings.Default.PLC_Slot;                         // Slot nummer
-
-            // Probeer een verbinding te leggen met de PLC van de Villars machine (Siemens Simatic S7-1500 PLC)
-            int iResult                                                 = VillarsPLC.ConnectTo("Villars", strIPAddress, iRack, iSlot);
-
-            // PLC is verbonden indien resultaat gelijk is aan "0"
-            if (iResult == 0)
-            {
-                stslblVerbindingPLC.Text                                = "PLC : Verbonden";
-                btnPLCVerbinding.Enabled                                = false;
-                btnPLCAfkoppelen.Enabled                                = true;
-            }
-            else
-                MessageBox.Show("Kan geen verbinding maken met de PLC.\n Controleer de ethernetverbinding!", 
-                    "Verbindingsfout!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
-
-        // Gebruiker heeft op de knop "PLC afkoppelen" gedrukt
-        private void btnPLCAfkoppelen_Click(object sender, EventArgs e)
-        {
-            // Probeer de verbinding af te sluiten met de PLC van de Villars machine (Siemens Simatic S7-1500 PLC)
-            int iResult                                                 = VillarsPLC.Disconnect();
-
-            // PLC is correct afgesloten indien resultaat gelijk is aan "0"
-            if (iResult == 0)
-            {
-                stslblVerbindingPLC.Text                                = "PLC : Geen verbinding";
-                txtMachineStatus.Text                                   = "Geen machine status";
-                btnPLCVerbinding.Enabled                                = true;
-                btnPLCAfkoppelen.Enabled                                = false;
-                txtMachineStatus.BackColor                              = SystemColors.Control;
-            }
         }
 
         // Gebruiker heeft op de knop "wijzig metrage doek 1" gedrukt

@@ -99,7 +99,7 @@ namespace Dashboard_Villars_dotnet
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.txtIngavePassage);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPassage";
             this.Text = "Ingave passage";
             this.Load += new System.EventHandler(this.frmPassage_Load);

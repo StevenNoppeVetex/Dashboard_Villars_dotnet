@@ -30,12 +30,12 @@ namespace Dashboard_Villars_dotnet
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblPO = new System.Windows.Forms.Label();
             this.txtPO = new System.Windows.Forms.TextBox();
             this.dgvDoek1 = new System.Windows.Forms.DataGridView();
@@ -49,13 +49,11 @@ namespace Dashboard_Villars_dotnet
             this.lblMachineStatus = new System.Windows.Forms.Label();
             this.txtMachineStatus = new System.Windows.Forms.TextBox();
             this.stsStatusStrip = new System.Windows.Forms.StatusStrip();
-            this.stslblVerbindingPLC = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnPLCVerbinding = new System.Windows.Forms.Button();
+            this.stslblVersion = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnWisDoeken1 = new System.Windows.Forms.Button();
             this.btnWisMembramen_doeken2 = new System.Windows.Forms.Button();
             this.btnWisPO = new System.Windows.Forms.Button();
             this.pbxVetexLogo = new System.Windows.Forms.PictureBox();
-            this.btnPLCAfkoppelen = new System.Windows.Forms.Button();
             this.btnWijzigMetrageDoek1 = new System.Windows.Forms.Button();
             this.btnWijzigMetrageMembraam_doek2 = new System.Windows.Forms.Button();
             this.btnPrintLabel = new System.Windows.Forms.Button();
@@ -88,34 +86,34 @@ namespace Dashboard_Villars_dotnet
             // 
             this.dgvDoek1.AllowUserToAddRows = false;
             this.dgvDoek1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDoek1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDoek1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDoek1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDoek1.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDoek1.DefaultCellStyle = dataGridViewCellStyle2;
             resources.ApplyResources(this.dgvDoek1, "dgvDoek1");
             this.dgvDoek1.Name = "dgvDoek1";
             this.dgvDoek1.ReadOnly = true;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDoek1.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDoek1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             // 
             // lblDoek1
             // 
@@ -126,34 +124,34 @@ namespace Dashboard_Villars_dotnet
             // 
             this.dgvMembraam_doek2.AllowUserToAddRows = false;
             this.dgvMembraam_doek2.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMembraam_doek2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMembraam_doek2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvMembraam_doek2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvMembraam_doek2.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMembraam_doek2.DefaultCellStyle = dataGridViewCellStyle5;
             resources.ApplyResources(this.dgvMembraam_doek2, "dgvMembraam_doek2");
             this.dgvMembraam_doek2.Name = "dgvMembraam_doek2";
             this.dgvMembraam_doek2.ReadOnly = true;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMembraam_doek2.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMembraam_doek2.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             // 
             // lblMembraam_doek2
             // 
@@ -200,21 +198,14 @@ namespace Dashboard_Villars_dotnet
             // 
             this.stsStatusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.stsStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.stslblVerbindingPLC});
+            this.stslblVersion});
             resources.ApplyResources(this.stsStatusStrip, "stsStatusStrip");
             this.stsStatusStrip.Name = "stsStatusStrip";
             // 
-            // stslblVerbindingPLC
+            // stslblVersion
             // 
-            this.stslblVerbindingPLC.Name = "stslblVerbindingPLC";
-            resources.ApplyResources(this.stslblVerbindingPLC, "stslblVerbindingPLC");
-            // 
-            // btnPLCVerbinding
-            // 
-            resources.ApplyResources(this.btnPLCVerbinding, "btnPLCVerbinding");
-            this.btnPLCVerbinding.Name = "btnPLCVerbinding";
-            this.btnPLCVerbinding.UseVisualStyleBackColor = true;
-            this.btnPLCVerbinding.Click += new System.EventHandler(this.btnPLCVerbinding_Click);
+            this.stslblVersion.Name = "stslblVersion";
+            resources.ApplyResources(this.stslblVersion, "stslblVersion");
             // 
             // btnWisDoeken1
             // 
@@ -242,13 +233,6 @@ namespace Dashboard_Villars_dotnet
             resources.ApplyResources(this.pbxVetexLogo, "pbxVetexLogo");
             this.pbxVetexLogo.Name = "pbxVetexLogo";
             this.pbxVetexLogo.TabStop = false;
-            // 
-            // btnPLCAfkoppelen
-            // 
-            resources.ApplyResources(this.btnPLCAfkoppelen, "btnPLCAfkoppelen");
-            this.btnPLCAfkoppelen.Name = "btnPLCAfkoppelen";
-            this.btnPLCAfkoppelen.UseVisualStyleBackColor = true;
-            this.btnPLCAfkoppelen.Click += new System.EventHandler(this.btnPLCAfkoppelen_Click);
             // 
             // btnWijzigMetrageDoek1
             // 
@@ -341,12 +325,10 @@ namespace Dashboard_Villars_dotnet
             this.Controls.Add(this.btnPrintLabel);
             this.Controls.Add(this.btnWijzigMetrageMembraam_doek2);
             this.Controls.Add(this.btnWijzigMetrageDoek1);
-            this.Controls.Add(this.btnPLCAfkoppelen);
             this.Controls.Add(this.pbxVetexLogo);
             this.Controls.Add(this.btnWisPO);
             this.Controls.Add(this.btnWisMembramen_doeken2);
             this.Controls.Add(this.btnWisDoeken1);
-            this.Controls.Add(this.btnPLCVerbinding);
             this.Controls.Add(this.stsStatusStrip);
             this.Controls.Add(this.txtMachineStatus);
             this.Controls.Add(this.lblMachineStatus);
@@ -360,6 +342,7 @@ namespace Dashboard_Villars_dotnet
             this.Controls.Add(this.dgvDoek1);
             this.Controls.Add(this.txtPO);
             this.Controls.Add(this.lblPO);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMain";
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoek1)).EndInit();
@@ -383,8 +366,6 @@ namespace Dashboard_Villars_dotnet
         private System.Windows.Forms.Label lblMachineStatus;
         private System.Windows.Forms.TextBox txtMachineStatus;
         private System.Windows.Forms.StatusStrip stsStatusStrip;
-        private System.Windows.Forms.ToolStripStatusLabel stslblVerbindingPLC;
-        private System.Windows.Forms.Button btnPLCVerbinding;
         public System.Windows.Forms.TextBox txtPO;
         public System.Windows.Forms.DataGridView dgvDoek1;
         public System.Windows.Forms.DataGridView dgvMembraam_doek2;
@@ -393,7 +374,6 @@ namespace Dashboard_Villars_dotnet
         private System.Windows.Forms.Button btnWisPO;
         public System.Windows.Forms.TextBox txtPassage;
         private System.Windows.Forms.PictureBox pbxVetexLogo;
-        private System.Windows.Forms.Button btnPLCAfkoppelen;
         private System.Windows.Forms.Button btnWijzigMetrageDoek1;
         private System.Windows.Forms.Button btnWijzigMetrageMembraam_doek2;
         private System.Windows.Forms.Button btnPrintLabel;
@@ -405,6 +385,7 @@ namespace Dashboard_Villars_dotnet
         private System.Windows.Forms.Button btnGebeurtenis5;
         private System.Windows.Forms.Button btnGebeurtenis8;
         private System.Windows.Forms.Button btnGebeurtenis7;
+        private System.Windows.Forms.ToolStripStatusLabel stslblVersion;
     }
 }
 

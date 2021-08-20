@@ -215,6 +215,7 @@ namespace Dashboard_Villars_dotnet
             this.Controls.Add(this.btn2);
             this.Controls.Add(this.btn1);
             this.Controls.Add(this.txtIngaveMetrage);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMetrage";
             this.Text = "frmMetrage";
             this.ResumeLayout(false);

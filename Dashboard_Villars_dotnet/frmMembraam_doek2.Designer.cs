@@ -85,6 +85,7 @@ namespace Dashboard_Villars_dotnet
             this.Controls.Add(this.btnAnnuleren);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.txtIngaveMembraam);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmMembraam_doek2";
             this.Text = "Ingave membraam/doek 2";
             this.Load += new System.EventHandler(this.frmMembraam_Load);

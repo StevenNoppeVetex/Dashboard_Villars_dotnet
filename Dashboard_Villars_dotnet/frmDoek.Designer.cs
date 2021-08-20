@@ -267,7 +267,7 @@ namespace Dashboard_Villars_dotnet
             this.Controls.Add(this.btnAnnuleren);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.txtIngaveDoek);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmDoek";
             this.Text = "Ingave doek";
             this.Load += new System.EventHandler(this.frmDoek_Load);

@@ -150,7 +150,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblPO.ZOrder" xml:space="preserve">
-    <value>29</value>
+    <value>27</value>
   </data>
   <data name="txtPO.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 18pt</value>
@@ -178,7 +178,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtPO.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>26</value>
   </data>
   <data name="dgvDoek1.Location" type="System.Drawing.Point, System.Drawing">
     <value>168, 205</value>
@@ -202,7 +202,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dgvDoek1.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>25</value>
   </data>
   <data name="lblDoek1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -235,7 +235,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblDoek1.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>24</value>
   </data>
   <data name="dgvMembraam_doek2.Location" type="System.Drawing.Point, System.Drawing">
     <value>168, 435</value>
@@ -259,7 +259,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dgvMembraam_doek2.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>23</value>
   </data>
   <data name="lblMembraam_doek2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -295,7 +295,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblMembraam_doek2.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>22</value>
   </data>
   <data name="lblPassage.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -325,7 +325,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblPassage.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>21</value>
   </data>
   <data name="txtPassage.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 18pt</value>
@@ -352,7 +352,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtPassage.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>20</value>
   </data>
   <data name="btnToevoegenDoek1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -379,7 +379,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnToevoegenDoek1.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>19</value>
   </data>
   <data name="btnToevoegenMembraam_doek2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -406,7 +406,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnToevoegenMembraam_doek2.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>18</value>
   </data>
   <data name="lblMachineStatus.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -439,7 +439,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;lblMachineStatus.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>17</value>
   </data>
   <data name="txtMachineStatus.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
@@ -475,11 +475,17 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;txtMachineStatus.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>16</value>
   </data>
   <metadata name="stsStatusStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="stslblVersion.Size" type="System.Drawing.Size, System.Drawing">
+    <value>54, 17</value>
+  </data>
+  <data name="stslblVersion.Text" xml:space="preserve">
+    <value>Version : </value>
+  </data>
   <data name="stsStatusStrip.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 707</value>
   </data>
@@ -505,43 +511,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;stsStatusStrip.ZOrder" xml:space="preserve">
-    <value>17</value>
-  </data>
-  <data name="stslblVerbindingPLC.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 17</value>
-  </data>
-  <data name="stslblVerbindingPLC.Text" xml:space="preserve">
-    <value>PLC : Geen verbinding</value>
-  </data>
-  <data name="btnPLCVerbinding.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="btnPLCVerbinding.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="btnPLCVerbinding.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 570</value>
-  </data>
-  <data name="btnPLCVerbinding.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 50</value>
-  </data>
-  <data name="btnPLCVerbinding.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="btnPLCVerbinding.Text" xml:space="preserve">
-    <value>PLC verbinden</value>
-  </data>
-  <data name="&gt;&gt;btnPLCVerbinding.Name" xml:space="preserve">
-    <value>btnPLCVerbinding</value>
-  </data>
-  <data name="&gt;&gt;btnPLCVerbinding.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnPLCVerbinding.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnPLCVerbinding.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>15</value>
   </data>
   <data name="btnWisDoeken1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -571,7 +541,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnWisDoeken1.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>14</value>
   </data>
   <data name="btnWisMembramen_doeken2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -601,7 +571,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnWisMembramen_doeken2.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
   <data name="btnWisPO.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt</value>
@@ -631,7 +601,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;btnWisPO.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>12</value>
   </data>
   <data name="pbxVetexLogo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1350,42 +1320,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pbxVetexLogo.ZOrder" xml:space="preserve">
-    <value>12</value>
-  </data>
-  <data name="btnPLCAfkoppelen.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="btnPLCAfkoppelen.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="btnPLCAfkoppelen.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 12pt</value>
-  </data>
-  <data name="btnPLCAfkoppelen.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnPLCAfkoppelen.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 634</value>
-  </data>
-  <data name="btnPLCAfkoppelen.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 50</value>
-  </data>
-  <data name="btnPLCAfkoppelen.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="btnPLCAfkoppelen.Text" xml:space="preserve">
-    <value>PLC afkoppelen</value>
-  </data>
-  <data name="&gt;&gt;btnPLCAfkoppelen.Name" xml:space="preserve">
-    <value>btnPLCAfkoppelen</value>
-  </data>
-  <data name="&gt;&gt;btnPLCAfkoppelen.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnPLCAfkoppelen.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;btnPLCAfkoppelen.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
   <data name="btnWijzigMetrageDoek1.Font" type="System.Drawing.Font, System.Drawing">
@@ -1763,10 +1697,10 @@
   <data name="$this.Text" xml:space="preserve">
     <value>Villars</value>
   </data>
-  <data name="&gt;&gt;stslblVerbindingPLC.Name" xml:space="preserve">
-    <value>stslblVerbindingPLC</value>
+  <data name="&gt;&gt;stslblVersion.Name" xml:space="preserve">
+    <value>stslblVersion</value>
   </data>
-  <data name="&gt;&gt;stslblVerbindingPLC.Type" xml:space="preserve">
+  <data name="&gt;&gt;stslblVersion.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
