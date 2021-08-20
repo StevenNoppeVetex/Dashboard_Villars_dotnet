@@ -39,19 +39,20 @@ using Vet.IoT.Mqtt.Client;
  *                              - Zet focus op hoofdvenster bij opstarten applicatie
  * 13 juli 2021     - V0.3.4 :  - Toevoegen Nuget package van Oquile : MQTT client (Vet.IoT.Mqtt.Client v3.0.0)
  * 23 juli 2021     - V0.4   :  - Inlezen machine status via MQTT uit de IoT gateway en visualiseren op het scherm
- *                              - aanmaken extra klasse voor event "membrane change"
+ *                              - Aanmaken extra klasse voor event "membrane change"
  *                              - Klikken op knop "gebeurtenis 1" verzend een event naar de IoT gateway : membrane change
  * 20/08/2021       - V0.4   :  - Aanpassen TODO lijst
  * 20/08/2021       - V0.4.1 :  - Knoppen toegevoegd op formulier "ingave doek"
- *                              - label toegevoegd op Statusbar voor versienummer
- *                              - wissel label status verbinding PLC
- *                              - wissen knoppen "PLC verbinden" / "PLC afkoppelen"
- *                              - wissen alle code die ophalen data uit PLC afhandeld
+ *                              - Label toegevoegd op Statusbar voor versienummer
+ *                              - Wissel label status verbinding PLC
+ *                              - Wissen knoppen "PLC verbinden" / "PLC afkoppelen"
+ *                              - Wissen alle code die ophalen data uit PLC afhandeld
  *                              - Alle titlebaren uitgeschakeld
+ *                              - Achtergrond kleur van ingave vensters gewijzigd naar "ControlDark"
  * 
  * TODO :
  * ------
-  * - Events : - Voorbereiding productie
+ * - Events : - Voorbereiding productie
  *            - Start PO
  *            - Stop PO
  *            - Doek 1 wissel (later misschien via impuls van schakelaar wissel tussen rem 1 & rem 2)
@@ -60,7 +61,6 @@ using Vet.IoT.Mqtt.Client;
  * - Op einde productie => overzicht van alles + geregistreerde events
  *                      => ingave rest doek / membraam
  * - Bij elke registratie van een event : registratie lengte + registratie tijd/datum
- * - Wijzigen Data Grid View van doek 1 & doek 2/membraam : mogelijkheid tot scrollen toevoegen (tot minstens 9 rollen per PO mogelijk!)
  */
 
 namespace Dashboard_Villars_dotnet
