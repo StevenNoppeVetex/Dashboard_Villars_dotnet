@@ -9,3 +9,4 @@ User is able to enter which PO (Production Order) they will run.
 They can also enter the different fabric rolls and membrames.
 Afterwards the operator can enter how much meters they used from the rolls.
 Operator is also able to send an event update to an Azure data lake database.
+After a production run, it will be possible to get a summary of that PO with all the events that occurred.
